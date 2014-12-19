@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IsTargetCExecutable>false</IsTargetCExecutable>
+  </PropertyGroup>
+  <Target Name="TargetA" DependsOnTargets="TargetC">
+    <Message Text="This is Target A"></Message>
+  </Target>
+  <Target Name="TargetC" Condition="$(IsTargetCExecutable)">
+    <Message Text="This is Target C"></Message>
+  </Target>
+</Project>
