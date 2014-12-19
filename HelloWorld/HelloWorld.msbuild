@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Name>Tamizh</Name>
+    <FullName>$(Name) Vendan S</FullName>
+    <FsharpFiles>D:\github\fsharp-phonecat\Domain\*.fs</FsharpFiles>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Fsharp Include="$(FsharpFiles)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Vehicle Include="Alto 800">
+      <Type>Car</Type>
+    </Vehicle>
+    <Vehicle Include="Air Bus">
+      <Type>Aeroplane</Type>
+    </Vehicle>
+  </ItemGroup>
+
+  <Target Name="Items">
+    <Message Text="@(Fsharp)"></Message>
+    <Message Text="@(Fsharp->'%(ModifiedTime)')"></Message>
+  </Target>
+  
+  <Target Name="CustomItems">
+    <Message Text="@(Vehicle)"></Message>
+    <Message Text="@(Vehicle->'%(Type)')"></Message>
+  </Target>
+
+  <Target Name="HelloWorld">
+    <Message Text="Hello, $(Name)!" Importance="normal"/>
+  </Target>
+  <Target Name="GoodByeWorld">
+    <Message Text="Good Bye $(FullName)!" Importance="high"></Message>
+  </Target>
+  <Target Name="ReservedProps">
+    <Message Text="MSBuildProjectDirectory : $(MSBuildProjectDirectory)" />
+    <Message Text="LOGONSERVER : $(LOGONSERVER)" />
+  </Target>
+</Project>
